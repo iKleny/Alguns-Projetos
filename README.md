@@ -1,2 +1,2 @@
-# TesteRepositorio
- Aprendendo a usar
+# Alguns projetos iniciantes
+ Em fase de aprendizagem

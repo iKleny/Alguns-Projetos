@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        body{
+            background-color: cornflowerblue;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+        }
+        .box-nav{
+            background-color: gold;
+            padding: 5px;
+            border-radius: 15px;
+        }
+        .box{
+            background: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 15px;
+            border-radius: 15px;
+            color: white;
+        }
+        .input{
+            padding: 10px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            font-size: 15px;
+            width: 50%;
+        }
+        .box button{
+            padding: 10px;
+            border: none;
+            outline: none;
+            width: 50%;
+            background-color: slateblue;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        button:hover{
+            background-color: cornflowerblue;
+        }
+        .class button{
+            display: center;
+            justify-content: center;
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="box-nav">
+        <h1>Calculadora Simples</h1>
+        <h2>Prof. Daniel</h2>
+    </div>
+    <div class="box">
+        <p>PRIMEIRO PROJETO</p>
+        <input type="number" required="campo requerido" id="number1" class="input" placeholder="0">
+        <br><br>
+        <input type="number" required="campo requerido" id="number2" class="input" placeholder="0">
+        <br><br>
+        <input type="radio" id="adicao" name="operation" value="adicao" checked>
+        <label for="adicao">Adição</label>
+        <br><br>
+        <input type="radio" id="subtracao" name="operation" value="subtracao">
+        <label for="subtracao">Subtração</label>
+        <br><br>
+        <input type="radio" id="multiplicacao" name="operation" value="multiplicacao">
+        <label for="multiplicacao">Multiplicação</label>
+        <br><br>
+        <input type="radio" id="divisao" name="operation" value="divisao">
+        <label for="divisao">Divisão</label>
+        <br><br>
+        <button onclick="somamedia()">calcular</button>
+    </div>
+</body>
+<script>
+    function somamedia(){
+        var number1 = parseFloat(document.querySelector("#number1").value);
+        var number2 = parseFloat(document.querySelector("#number2").value);
+        var selectOperation = document.querySelector('input[name="operation"]:checked').value;
+        var nameOperation, calculo;
+
+        if(selectOperation == 'adicao'){
+            nameOperation = 'adição';
+            calculo = number1 + number2;
+            alert(nameOperation+': '+calculo);
+        }
+        
+        else if(selectOperation == 'subtracao'){
+            nameOperation = 'subtração';
+            calculo = number1 - number2;
+            alert(nameOperation+': '+calculo);
+        }
+
+        else if(selectOperation == 'multiplicacao'){
+            nameOperation = 'multiplicação';
+            calculo = number1 * number2;
+            alert(nameOperation+': '+calculo);
+        }
+        
+        else {
+            if (selectOperation =='divisao' && number2 <=0){
+            alert("Não é possível dividir por zero")
+            }
+        else {
+            nameOperation = 'divisão';
+            calculo = number1 / number2;
+            alert(nameOperation+': '+calculo);
+            }
+        }
+        
+};
+</script>
+</html>
