@@ -100,9 +100,9 @@
     function add() {
         if(numb(numero.value) && !lapis(numero.value, a)){
         a.push (Number(numero.value))
-        var penis = document.createElement("option")
-        penis.text = a
-        seletor.appendChild(penis)
+        var opt = document.createElement("option")
+        opt.text = a
+        seletor.appendChild(opt)
         }else {
             alert("Valor inválido ou já inserido na lista")
         }
