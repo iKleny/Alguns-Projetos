@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+
+    <style>
+        body{
+            background-color: cornflowerblue;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+        }
+        .box-nav{
+            background-color: gold;
+            padding: 5px;
+            border-radius: 15px;
+        }
+        .box{
+            background: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 54%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 15px;
+            border-radius: 15px;
+            color: white;
+        }
+        input{
+            padding: 10px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            font-size: 15px;
+            width: 50%;
+        }
+        button{
+            padding: 10px;
+            border: none;
+            outline: none;
+            width: 50%;
+            background-color: slateblue;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        button:hover{
+            background-color: cornflowerblue;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="box-nav">
+        <h1>Array com alguns comandos</h1>
+        <h2>Prof. Daniel</h2>
+    </div>
+
+    <div class="box">
+        <input type="number" name="" id="numb">
+        <button onclick="add()">Adicionar</button>
+        <br><br>
+        <select name="num" value="" id="sel" size="10">
+            <option>Adicione números acima</option>
+        </select>
+        <button onclick="send()">Finalizar</button>
+        <br><br>
+        <p id="texto"></p>
+    </div>
+</body>
+</html>
+
+
+<script>
+    var numero = document.querySelector("#numb");
+    var a = [];
+    var seletor = document.querySelector("#sel");
+    var texto = document.getElementById("texto");
+
+    function numb(d) {
+        if(Number(d) >=1 && Number(d) <=100){
+            return true
+        } else {
+            return false
+        }
+        
+    }
+
+    function lapis(d, l){
+        if(l.indexOf(Number(d)) != -1){
+            return true
+        } else {
+            return false
+        }
+    }
+
+    function add() {
+        if(numb(numero.value) && !lapis(numero.value, a)){
+        a.push (Number(numero.value))
+        var penis = document.createElement("option")
+        penis.text = a
+        seletor.appendChild(penis)
+        }else {
+            alert("Valor inválido ou já inserido na lista")
+        }
+        texto.innerHTML = ""
+
+        numero.value='' //para limpar o valor do input após adicionar o elemento
+        numero.focus() //para assim que limpar o valor do input, ele voltar a piscar para adicionar mais 1 elemento
+    }
+    
+    function send() {
+        a.sort()
+        var p = 0
+        for(var j = 0; j<a.length; j++){
+            p=p+a[j]
+        }
+        var j = a[a.length -1]
+        texto.innerHTML = ""
+        texto.innerHTML += `<p>Os valores adicionados em ordem foram: ${a}</p>`
+        texto.innerHTML += `<p>O maior valor adicionado é: ${j}</p>`
+        texto.innerHTML += `<p>A soma de todos os valores adicionado é: ${p}</p>`
+        texto.innerHTML += `<p>O total de número é: ${a.length}</p>`
+
+    }
+
+    
+</script>

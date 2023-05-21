@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo de Notas</title>
+
+    <style>
+        body{
+            background-color: cornflowerblue;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+        }
+        .box-nav{
+            background-color: gold;
+            padding: 5px;
+            border-radius: 15px;
+        }
+        .box{
+            background: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 15px;
+            border-radius: 15px;
+            color: white;
+        }
+        input{
+            padding: 10px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            font-size: 15px;
+            width: 50%;
+        }
+        button{
+            padding: 10px;
+            border: none;
+            outline: none;
+            width: 50%;
+            background-color: slateblue;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        button:hover{
+            background-color: cornflowerblue;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="box-nav">
+        <h1>Calculo de Notas</h1>
+        <h2>Prof. Daniel</h2>
+    </div>
+
+    <div class="box">
+
+        <input type="number" id="n1" placeholder="primeira nota">
+        <br><br>
+        <input type="number" id="n2" placeholder="segunda nota">
+        <br><br>
+        <button onclick="notas()">calcular</button>
+    </div>
+</body>
+</html>
+
+<script>
+    function notas() {
+        var a = parseFloat(document.querySelector("#n1").value);
+        var b = parseFloat(document.querySelector("#n2").value);
+        var sub = (a + b) /2;
+
+        
+        if (sub >=9){
+            alert("A mèdia é: " + sub + " e sua nota é: A")
+        };
+
+        if (sub >=8 & sub <=8.9){
+            alert("A mèdia é: " + sub + " e sua nota é: B")
+        };
+
+        if (sub >=7 & sub <=7.9){
+            alert("A mèdia é: " + sub + " e sua nota é: C")
+        };
+
+        if (sub >=6 & sub <=6.9){
+            alert("A mèdia é: " + sub + " e sua nota é: D")
+        };
+
+        if (sub >=5 & sub <=5.9){
+            alert("A mèdia é: " + sub + " e sua nota é: E")
+        };
+
+        if (sub <=4.9){
+            alert("A mèdia é: " + sub + " e sua nota é: F")
+        };
+        
+    }
+
+</script>

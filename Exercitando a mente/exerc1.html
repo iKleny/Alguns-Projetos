@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador</title>
+    <style>
+        body{
+            background-color: cornflowerblue;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+        }
+        .box-nav{
+            background-color: gold;
+            padding: 5px;
+            border-radius: 15px;
+        }
+        .box{
+            background: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 15px;
+            border-radius: 15px;
+            color: white;
+        }
+        input{
+            padding: 10px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            font-size: 15px;
+            width: 50%;
+        }
+        button{
+            padding: 10px;
+            border: none;
+            outline: none;
+            width: 50%;
+            background-color: slateblue;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        button:hover{
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box-nav">
+        <h1>Exercitando a mente</h1>
+        <h2>Daniel</h2>
+    </div>
+    <div class="box">
+        <input type="text" id="nome" placeholder="Digite seu nome">
+        <br><br>
+        <input type="number" id="idade" placeholder="Ano de nascimento">
+        <br><br>
+        <input type="radio" name="sex" id="masc" value="masculino" checked>
+        <label for="masc">Masculino</label>
+        <input type="radio" name="sex" id="fem" value="feminino">
+        <label for="fem">Feminino</label>
+        <br><br>
+        <button onclick="make()">Realizar</button>
+        <br><br>
+        <h1 id="texto">Esperando os seus Dados</h1>
+    </div>
+</html>
+
+
+<script>
+    function make() {
+        var nome = document.querySelector("#nome").value;
+        var idade = document.querySelector("#idade").value;
+        var sex = document.querySelector('input[name="sex"]:checked').value;
+        var ano = 2023;
+        var a = ano - idade;
+        var texto = document.getElementById("texto")
+        var img = document.createElement("img") //para utilizar imagens em js
+        //img.setAttribute("id", "foto") //id criado pelo js
+        
+        if (sex == "masculino") {
+            img.setAttribute("src", "img/masc.png")
+            
+        } else if(sex == "feminino") {
+            img.setAttribute("src", "img/fem.png")
+        }
+
+        texto.innerHTML = `Você é o ${nome}, e sua idade é ${a}, e vc é do sexo ${sex}`
+        texto.appendChild(img)
+    }
+</script>
