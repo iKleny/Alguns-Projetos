@@ -77,10 +77,11 @@
         var nome = document.querySelector("#nome").value;
         var idade = document.querySelector("#idade").value;
         var sex = document.querySelector('input[name="sex"]:checked').value;
-        var ano = 2023;
+        var y = new Date();
+        var ano = y.getFullYear();
         var a = ano - idade;
-        var texto = document.getElementById("texto")
-        var img = document.createElement("img") //para utilizar imagens em js
+        var texto = document.getElementById("texto");
+        var img = document.createElement("img");//para utilizar imagens em js
         //img.setAttribute("id", "foto") //id criado pelo js
         
         if (sex == "masculino") {
