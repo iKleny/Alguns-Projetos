@@ -1,2 +1,2 @@
 # Alguns projetos iniciantes
- Em fase de aprendizagem
+ A minha ideia é treinar js, por isso eu não foquei tanto em css
